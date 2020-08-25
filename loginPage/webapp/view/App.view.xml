@@ -1,0 +1,17 @@
+<mvc:View controllerName="loginPage.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App backgroundImage="https://www.publicdomainpictures.net/pictures/320000/velka/background-image.png">
+		<pages>
+			<Page showHeader="false">
+				<content>
+					<VBox justifyContent="Center" alignItems="Center" height="500px" >
+					<Text text = "3조" />
+					<Input type="Text" value ="{/id}" placeholder="ID" />
+					<Input type="Password" value ="{/password}" placeholder="Password" />
+					<Button text="login" press=".onLogin" />
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

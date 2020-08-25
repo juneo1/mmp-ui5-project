@@ -1,0 +1,38 @@
+<mvc:View 
+	controllerName="control.controller.App" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	displayBlock="true"
+	xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<DatePicker 
+						value="{/sToday}"
+						valueFormat="{yyyy-MM-dd}"
+						displayFormat="{/dateFormat}" 
+						maxDate="{/maxDate}"
+						minDate="{/minDate}"
+						change=".onChangeFirstDate"	/>
+					<DatePicker
+						dateValue="{/oToday}"
+						displayFormat="yyyy-MM-dd"/>
+					<DateRangeSelection 
+						dateValue="{/oToday}"
+						secondDateValue="{/oToday2}"
+						displayFormat="{/dateFormat}"/>
+					<Select
+						items="{/selectItems}"
+						selectedKey="{/selectedKey}"
+						change=".onSelect">
+						<items>
+							<core:Item key="{itemKey}" text="{itemText}" />
+						</items>
+					</Select>	
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

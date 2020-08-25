@@ -1,0 +1,27 @@
+<mvc:View controllerName="gugudan.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="구구단">
+				<content>
+					<HBox>
+						<Input value="{/inputValue}" /><Button text="실행" press=".onGugudan" />
+					</HBox>
+					<HBox>
+						<Text text="{/gugudanTextArr/0}" class="sapUiSmallMargin"/>
+						<Text text="{/gugudanTextArr/1}" class="sapUiSmallMargin"/>
+						<Text text="{/gugudanTextArr/2}" class="sapUiSmallMargin"/>
+						<Text text="{/gugudanTextArr/3}" class="sapUiSmallMargin"/>
+						<Text text="{/gugudanTextArr/4}" class="sapUiSmallMargin"/>
+						<Text text="{/gugudanTextArr/5}" class="sapUiSmallMargin"/>
+						<Text text="{/gugudanTextArr/6}" class="sapUiSmallMargin"/>
+						<Text text="{/gugudanTextArr/7}" class="sapUiSmallMargin"/>
+						<Text text="{/gugudanTextArr/8}" class="sapUiSmallMargin"/>
+						<Text text="{/gugudanTextArr/9}" class="sapUiSmallMargin"/>
+					</HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
+
