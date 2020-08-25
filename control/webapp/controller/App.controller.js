@@ -23,6 +23,7 @@ sap.ui.define([
 			var oModel = new JSONModel(oData);
 			this.getView().setModel(oModel);
 		},
+		
 		onChangeFirstDate : function(oEvent) {
 			MessageToast.show(oEvent.getSource().getMaxDate());
 			oEvent.getSource().setMaxDate(new Date("2020-08-30"));
@@ -30,6 +31,15 @@ sap.ui.define([
 		
 		onSelect : function(ABC) {
 			MessageToast.show(ABC.getSource().getSelectedKey());
+		},
+		
+		onSelectSCheckBox : function(oEvent) {
+			var bSelected = oEvent.getSource().getSelected();
+			var oComboBox = this.byId("comboboxId");
+			oComboBox.setEnabled(bSelected);
+			
+			var oDatePicker = this.byId("dataPickerId");
+			MessageToast.show(oDatePicker.getValue());
 		}
 	});
 });

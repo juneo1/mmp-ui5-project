@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog
+		id="detailDialog"
+		title="Detail Info"
+		contentWidth="50%"
+		contentHeight="40%">
+		<VBox>
+			<Text text="{Products>/detailData/ProductId}" />
+		</VBox>
+		<beginButton>
+			<Button
+				text="닫기"
+				press=".onCloseDialog" />
+		</beginButton>
+	</Dialog>	
+</core:FragmentDefinition>
+
+
+<!-- Fragment는 View랑 비슷한 개념인데 View는 컨트롤러를 1:1로 가지고 있다. 
+	 그런데 Fragment는 컨트롤러를 사용하긴 하는데 1:1로 만들거나 하지 않는다. 
+	 View에서 분리가 된 이유는 재사용성을 높이기 위해서 분리를 시킨것이다. 
+	 => 이유는 View가 Controller와 붙어있으면 종속되어있는 것과 마찬가지기에 (press, change등)
+	 Fragment에서는 이에 대한 컨트롤러가 없이 여러가지 뷰에서 사용될 수 있게끔 뷰에 딸린 컨트롤러에서 제어를 한다. 
+	 그리고 각각의 View에서 공통으로 사용되는 화면이 있으면 뷰 대신 Fragment로 만드는 따로 빼오는 포맷이라고 이해하자.
+	 
+	 그리고  Dialog는 모듈인데, MessageToast나 Box는 알림용도로 사용하고 다이얼로그도 화면에 뜨는 창인데, 알림용도가 아니고
+	 보통 데이터를 표시하는데 많이 사용한다. SAPGUI에서의 조그만 선택창 같은 역할을 하는 것으로 생각하자.
+	 모달(뒤에가 까매지는 창)으로 많이 뜨고 내용이 많아지면 따라서 화면이 커진다.  -->

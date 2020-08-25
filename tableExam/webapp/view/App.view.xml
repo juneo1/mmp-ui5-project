@@ -1,0 +1,84 @@
+<mvc:View 
+	controllerName="tableExam.controller.App"
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:table="sap.ui.table"
+	xmlns:core="sap.ui.core"
+	displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<table:Table
+						id="productTable"
+						rows="{Products>/ProductCollection}">
+						<table:extension>
+							<OverflowToolbar>
+								<Title text="Product List" />
+								<ToolbarSpacer/>
+								<Select
+									change=".onSelect" >
+									<items>
+										<core:ListItem key="A" text="Manager" />
+										<core:ListItem key="B" text="Casher" />
+									</items>
+								</Select>
+								<!-- xmlns:core-->
+							</OverflowToolbar>
+						</table:extension>
+						<table:columns>
+							<table:Column width="12rem" hAlign="Center" sortProperty="Name" filterProperty="Name">
+								<Label text="Product Name" />
+								<table:template>
+									<Text text="{Products>Name}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="11rem" hAlign="Center" visible="true">
+								<Label text="Product Id" />
+								<table:template>
+									<Link text="{Products>ProductId}" press=".onDetailDialog"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="6rem" hAlign="Center">
+								<Label text="Quantity" />
+								<table:template>
+									<Text text="{Products>Quantity}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="9rem" hAlign="Center">
+								<Label text="Status" />
+								<table:template>
+									<Text text="{Products>Status}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="8rem" hAlign="Center">
+								<Label text="Price" />
+								<table:template>
+									<Text text="{Products>Price}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="10rem" hAlign="Center">
+								<Label text="Supplier" />
+								<table:template>
+									<Text text="{Products>SupplierName}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="11rem" hAlign="Center">
+								<Label text="Category" />
+								<table:template>
+									<Text text="{Products>Category}"/>
+								</table:template>
+							</table:Column>
+								<table:Column width="11rem" hAlign="Center">
+								<Label text="Delivery Date" />
+								<table:template>
+									<Text text="{Products>DateOfSale}"/>
+								</table:template>
+							</table:Column>
+						</table:columns>
+					</table:Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
