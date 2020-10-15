@@ -1,0 +1,50 @@
+<mvc:View 
+	controllerName="addressSelector.controller.App" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	class="sapUiSizeCompact">
+	<App>
+		<pages>
+			<Page title="AddressSelector">
+				<content>
+					<HBox>
+					<Label text="시" design="Bold" width="3rem" />
+						<Select
+							items="{/}"
+							width="400px"
+							change=".onSelectChange">
+							<items>
+								<core:ListItem key="{KEY}" text="{NAME}"/>
+							</items>
+						</Select>
+					</HBox>
+					<HBox>
+					<Label text="구" width="3rem" vAlign="Bottom" />
+						<Select
+							id="Gu"
+							width="400px"
+							change=".onSelectChange">
+							<items>
+								<core:ListItem key="{KEY}" text="{NAME}"/>
+							</items>
+						</Select>
+					</HBox>
+					<HBox>
+					<Label text="동" width="3rem" />
+						<Select
+							id="Dong"
+							width="400px"
+							change=".onSelectChange">
+							<items>
+								<core:ListItem key="{KEY}" text="{NAME}"/>
+							</items>
+						</Select>	
+					</HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

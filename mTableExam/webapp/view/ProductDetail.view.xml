@@ -1,0 +1,78 @@
+<mvc:View 
+	controllerName="mTableExam.controller.ProductDetail" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	displayBlock="true" 
+	xmlns:m="sap.m"
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.ui.layout.form">
+	
+	<m:Page title="Detail Page" showNavButton="true" navButtonPress=".onNavBack">
+		<m:content>
+			<Form>
+				<layout>
+					<!--layout의 aggregation으로 하나만 넣어줘야 한다. 여기서는 ResponsiveGridLayout 사용-->
+					<ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" columnsXL="2" columnsL="2" columnsM="2"/>
+				</layout>
+				<formContainers>
+					<FormContainer>
+						<formElements>
+							<FormElement>
+								<label><m:Label text="Product Name"/></label>
+								<fields><m:Input required="true" value="{detail>/Name}" valueState="{state>/nameValue}" enabled="{state>/afterSaveEdit}" /></fields>
+							</FormElement>
+							<FormElement>
+								<label><m:Label text="Product Id"/></label>
+								<fields><m:Input required="true" value="{detail>/ProductId}"  valueState="{state>/idValue}"  enabled="{state>/afterSaveEdit}" /></fields>
+							</FormElement>
+							<FormElement>
+								<label><m:Label text="Quantity"/></label>
+								<fields><m:Input value="{detail>/Quantity}"/></fields>
+							</FormElement>
+							<FormElement>
+								<label><m:Label text="Status"/></label>
+								<fields><m:Input value="{detail>/Status}"/></fields>
+							</FormElement>
+						</formElements>
+					</FormContainer>
+					<FormContainer>
+						<formElements>
+							<FormElement>
+								<label><m:Label text="Price"/></label>
+								<fields><m:Input value="{detail>/Price}"/></fields>
+							</FormElement>
+							<FormElement>
+								<label><m:Label text="Supplier"/></label>
+								<fields><m:Input value="{detail>/SupplierName}"/></fields>
+							</FormElement>
+							<FormElement>
+								<label><m:Label text="Category"/></label>
+								<fields>
+								<!--	<m:Input value="{detail>/Category}"/>-->
+									<m:Select selectedKey = "{filterbar>/categoryKey}">
+										<m:items>
+											<core:Item key="Laptops" text="Laptops" />
+											<core:Item key="Accessories" text="Accessories" />
+											<core:Item key="Flat Screen Monitors" text="Flat Screen Monitors" />
+											<core:Item key="Printers" text="Printers" />
+										</m:items>
+									</m:Select>
+								</fields>
+							</FormElement>
+							<FormElement>
+								<label><m:Label text="Delivery Date"/></label>
+								<fields><m:Input value="{detail>/DateOfSale}"/></fields>
+							</FormElement>
+						</formElements>
+					</FormContainer>
+				</formContainers>
+			</Form>
+		</m:content>
+		<m:footer>
+			<m:OverflowToolbar>
+				<m:ToolbarSpacer />
+				<m:Button text="Save" type="Emphasized" press=".onSave" />
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

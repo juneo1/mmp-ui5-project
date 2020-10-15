@@ -1,0 +1,123 @@
+<mvc:View
+	controllerName="mTableExam.controller.ProductList" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:filterbar="sap.ui.comp.filterbar">
+	
+	<Page title ="M Table">
+		<content>
+			<filterbar:FilterBar
+				showFilterConfiguration="false"
+				useToolbar="true"
+				search=".onFilterBarSearch"
+				filterContainerWidth="21rem">
+				<filterbar:filterGroupItems>
+					<filterbar:FilterGroupItem label="Delivery Date" groupName="default" name="A" visibleInFilterBar="true" >
+						<filterbar:control>
+							<DatePicker 
+								value="{filterbar>/sDefaultDate}"
+								displayFormat="{filterbar>/displayFormat}"
+								valueFormat="{filterbar>/valueFormat}"/>
+						</filterbar:control>
+					</filterbar:FilterGroupItem>
+					<filterbar:FilterGroupItem label="Category" groupName="default" name="B" visibleInFilterBar="true" >
+						<filterbar:control>
+							<Select selectedKey = "{filterbar>/categoryKey}">
+								<items>
+									<core:Item key="" text="" />
+									<core:Item key="Laptops" text="Laptops" />
+									<core:Item key="Accessories" text="Accessories" />
+									<core:Item key="Flat Screen Monitors" text="Flat Screen Monitors" />
+									<core:Item key="Printers" text="Printers" />
+								</items>
+							</Select>
+						</filterbar:control>
+					</filterbar:FilterGroupItem>
+					<filterbar:FilterGroupItem label="Status" groupName="default" name="C" visibleInFilterBar="true" >
+						<filterbar:control>
+							<RadioButtonGroup columns="3" selectedIndex="{filterbar>/statusKey}">
+								<RadioButton text="All" />
+								<RadioButton text="Available" />
+								<RadioButton text="Unavailable" />
+							</RadioButtonGroup>
+						</filterbar:control>
+					</filterbar:FilterGroupItem>
+				</filterbar:filterGroupItems>
+			</filterbar:FilterBar>
+
+			<Table 
+				id="productMTable"
+				mode="{products>/tableMode}"
+				selectionChange=".onSelectionChange"
+				delete=".onRowDelete"
+				growing="true"
+				growingThreshold="10"
+				items="{products>/ProductCollection}"
+				sticky="ColumnHeaders">
+				<headerToolbar>
+					<OverflowToolbar>
+						<content>
+							<Title text="M Product List" />
+							<ToolbarSpacer />
+							<!--<CheckBox text="Delete Mode" select=".onDeleteMode" />-->
+							<Label text="Delete Mode" />
+							<Switch state="false" change=".onChangeSwitch" />
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="12rem"
+							minScreenWidth="Phone">
+						<Text text="Products Name" />
+					</Column>
+					<Column width="11rem"
+							minScreenWidth="Phone">
+						<Text text="Product Id" />
+					</Column>
+					<Column width="6rem"
+							minScreenWidth="Phone">
+						<Text text="Quantity" />
+					</Column>
+					<Column width="9rem"
+							minScreenWidth="Tablet">
+						<Text text="Status" />
+					</Column>
+					<Column width="8rem"
+							minScreenWidth="Desktop">
+						<Text text="Price" />
+					</Column>
+					<Column width="10rem"
+							minScreenWidth="Desktop">
+						<Text text="Supplier" />
+					</Column>
+					<Column width="11rem"
+							minScreenWidth="Desktop">
+						<Text text="Category" />
+					</Column>
+					<Column width="9rem"
+							minScreenWidth="Tablet">
+						<Text text="Delivery Date" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press=".onGoDetail">
+						<cells>
+							<Text text="{products>Name}"/>
+                        	<Text text="{products>ProductId}"/>
+                        	<Text text="{products>Quantity}"/>
+                        	<Text text="{products>Status}"/>
+                        	<Text text="{products>Price}"/>
+                        	<Text text="{products>SupplierName}"/>
+                        	<Text text="{products>Category}"/>
+                        	<Text text="{products>DateOfSale}"/>
+
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>
