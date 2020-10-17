@@ -1,0 +1,69 @@
+{
+	"selectedKey": "page2",
+	"navigation": [
+		{
+			"title": "Dashboard",
+			"key": "Dashboard"
+		},
+		{
+			"title": "매출화면",
+			"icon": "sap-icon://employee",
+			"expanded": true,
+			"key": "root1",
+			"items": [
+				{
+					"title": "Child Item 1",
+					"key": "page1"
+				},
+				{
+					"title": "Child Item 2",
+					"key": "page2"
+				}
+			]
+		},
+		{
+			"title": "재고조회",
+			"icon": "sap-icon://building",
+			"key": "root2"
+		},
+		{
+			"title": "이전전기",
+			"icon": "sap-icon://card",
+			"expanded": false,
+			"key" : "root3",
+			"items": [
+			]
+		},
+		{
+			"title": "문서조회",
+			"icon": "sap-icon://action",
+			"expanded": false,
+			"key" : "root4",
+			"items": [
+				{
+					"title": "Child Item 1"
+				},
+				{
+					"title": "Child Item 2"
+				},
+				{
+					"title": "Child Item 3"
+				}
+			]
+		}
+	],
+	"fixedNavigation": [
+		{
+			"title": "회사소개",
+			"icon": "sap-icon://employee"
+		},
+		{
+			"title": "오시는길",
+			"icon": "sap-icon://building"
+		},
+		{
+			"title": "채용안내",
+			"icon": "sap-icon://card"
+		}
+	]
+}

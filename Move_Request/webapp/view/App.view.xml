@@ -1,0 +1,126 @@
+<mvc:View controllerName="RFC_TEST.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified" xmlns:tnt="sap.tnt"
+	xmlns:filterbar="sap.ui.comp.filterbar">
+	<App>
+		<pages>
+			<Page showHeader="false">
+				<!--title="본사 입고요청처리"-->
+				<content>
+					<ObjectHeader titleLevel="H3" icon="./image/MMP.png" responsive="true" title="본사 입고요청처리" backgroundDesign="Solid"></ObjectHeader>
+					<filterbar:FilterBar showFilterConfiguration="false" useToolbar="false" filterContainerWidth="10rem" search=".onGetList">
+						<filterbar:filterGroupItems>
+							<filterbar:FilterGroupItem label="플랜트" groupName="default" name="C" visibleInFilterBar="true">
+								<filterbar:control>
+									<!--<Input value="{Init>/oInputPlant}" />-->
+									<ComboBox id="comboboxId2" items="{Plant>/selectItems}" selectedKey="" showSecondaryValues="true" change=".onSelect">
+										<items>
+											<!--<core:ListItem key="{Plant>WERKS}" text="{Plant>PLNAME}" additionalText="{Plant>LGOBE}" />-->
+											<core:ListItem key="{Plant>itemKey}" text="{Plant>itemText}" additionalText="{Plant>itemKey}"/>
+										</items>
+									</ComboBox>
+								</filterbar:control>
+							</filterbar:FilterGroupItem>
+							<filterbar:FilterGroupItem label="입고요청 문서번호" groupName="default" name="A" visibleInFilterBar="true">
+								<filterbar:control>
+									<Input value="{Init>/oInputNum}"/>
+								</filterbar:control>
+							</filterbar:FilterGroupItem>
+							<filterbar:FilterGroupItem label="요청일" groupName="default" name="B" visibleInFilterBar="true">
+								<filterbar:control>
+									<DateRangeSelection dateValue="{Init>/oToday}" secondDateValue="{Init>/oToday2}" displayFormat="{Init>/dateFormat}"
+										valueFormat="{Init>/valueFormat}"/>
+									<!--<DatePicker dateValue="{Init>/oToday}" displayFormat="{Init>/dateFormat}" valueFormat="{Init>/valueFormat}"/>-->
+								</filterbar:control>
+							</filterbar:FilterGroupItem>
+							<filterbar:FilterGroupItem label="Status" groupName="default" name="D" visibleInFilterBar="false">
+								<filterbar:control>
+									<RadioButtonGroup columns="3" selectedIndex="{filterbar>/statusKey}">
+										<RadioButton text="All"/>
+										<RadioButton text="Available"/>
+										<RadioButton text="Unavailable"/>
+									</RadioButtonGroup>
+								</filterbar:control>
+							</filterbar:FilterGroupItem>
+						</filterbar:filterGroupItems>
+					</filterbar:FilterBar>
+					<table:Table id="productTable2" rows="{ZMPI242>/TAB1}" selectionMode="Multi" visibleRowCount="15">
+						<table:extension>
+							<OverflowToolbar></OverflowToolbar>
+						</table:extension>
+						<table:columns>
+							<table:Column width="10rem" hAlign="Center">
+								<Label text="문서번호"/>
+								<table:template>
+									<Text text="{ZMPI242>WRNR}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="11rem" hAlign="Center">
+								<Label text="요청 일자"/>
+								<table:template>
+									<Text text="{ZMPI242>DATUM}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="11em" hAlign="Center">
+								<Label text="요청 플랜트"/>
+								<table:template>
+									<Text text="{ZMPI242>WERKS}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="11rem" hAlign="Center">
+								<Label text="저장위치"/>
+								<table:template>
+									<Text text="{ZMPI242>LGORT}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="10rem" hAlign="Center">
+								<Label text="자재 번호"/>
+								<table:template>
+									<Text text="{ZMPI242>MATNR}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="auto" hAlign="Center">
+								<Label text="자재명"/>
+								<table:template>
+									<Text text="{ZMPI242>MAKTX}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="7rem" hAlign="Center">
+								<Label text="주문 수량"/>
+								<table:template>
+									<Text text="{ZMPI242>MENGE}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="7rem" hAlign="Center">
+								<Label text="단위"/>
+								<table:template>
+									<Text text="{ZMPI242>MEINS}"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="10rem" hAlign="Center">
+								<Label text="진행상황"/>
+								<table:template>
+									<Button id="button" type="{ path: 'ZMPI242>STATE', formatter: '.formatObj'}" text="{ path: 'ZMPI242>STATE', formatter: '.textFormatObj'}"
+										enabled="false"/>
+								</table:template>
+							</table:Column>
+							<table:Column width="7rem" hAlign="Center">
+								<Label text="출고처리"/>
+								<!--<table:template>-->
+								<!--	<Button type="Reject" text="출고" enabled="{path: 'ZMPI230>STATE', formatter: '.ghostFormatObj'}" -->
+								<!--	visible="{path: 'ZMPI230>STATE', formatter: '.ghostFormatObj'}" press=".onRequest" />-->
+								<!--</table:template>-->
+							</table:Column>
+						</table:columns>
+						<table:footer>
+							<OverflowToolbar>
+								<ToolbarSpacer/>
+								<Button text="출고" press=".onRequestTest"/>
+								<Button text="상세내역확인" press=".onViewDetail"/>
+							</OverflowToolbar>
+						</table:footer>
+					</table:Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,64 @@
+<mvc:View controllerName="Main.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified" xmlns:tnt="sap.tnt"
+	xmlns:f="sap.f" xmlns:filterbar="sap.ui.comp.filterbar">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<f:ShellBar title="MMP Product" secondTitle="본사" showMenuButton="true" homeIcon="./resources/sap/ui/documentation/sdk/images/logo_ui5.png"
+				showCopilot="true" showNotifications="true" menuButtonPressed="onMenuButtonPress" showProductSwitcher="true" notificationsNumber="0">
+				<f:menu>
+					<Menu>
+						<MenuItem text="Flight booking" icon="sap-icon://flight"/>
+						<MenuItem text="Car rental" icon="sap-icon://car-rental"/>
+					</Menu>
+				</f:menu>
+				<f:profile>
+					<f:Avatar initials="UI"/>
+				</f:profile>
+				<f:searchManager>
+					<f:SearchManager/>
+				</f:searchManager>
+			</f:ShellBar>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="true" selectedKey="{/selectedKey}" itemSelect="onItemSelect">
+				<tnt:NavigationList items="{path: '/navigation'}">
+					<tnt:NavigationListItem text="{title}" icon="{icon}" enabled="{enabled}" expanded="{expanded}" items="{items}" key="{key}">
+						<tnt:NavigationListItem text="{title}" key="{key}" enabled="{enabled}"></tnt:NavigationListItem>
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList items="{path: '/fixedNavigation'}">
+						<tnt:NavigationListItem text="{title}" icon="{icon}"></tnt:NavigationListItem>
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer" initialPage="Dashboard">
+				<pages>
+					<ScrollContainer id="Dashboard" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="Main.view.Startpage"/>
+					</ScrollContainer>
+					<ScrollContainer id="root1" horizontal="false" vertical="true" height="100%">
+						<Text text="This is the root1 page"/>
+					</ScrollContainer>
+					<ScrollContainer id="page1" horizontal="false" vertical="true" height="100%">
+						<Text text="This is the root-first page"/>
+					</ScrollContainer>
+					<ScrollContainer id="page2" horizontal="false" vertical="true" height="100%">
+						<Text text="This is the root-second page"/>
+					</ScrollContainer>
+					<ScrollContainer id="root2" horizontal="false" vertical="true" height="100%">
+						<Text text="This is the root page of the second element"/>
+					</ScrollContainer>
+					<ScrollContainer id="root3" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="Main.view.Move"/>
+					</ScrollContainer>
+					<ScrollContainer id="root4" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="Main.view.Order"/>
+					</ScrollContainer>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>
