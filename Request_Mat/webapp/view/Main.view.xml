@@ -1,0 +1,12 @@
+<mvc:View controllerName="Main.controller.Main" displayBlock="true" height="100%" xmlns="sap.m" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc">
+	<App id="app">
+		<f:FlexibleColumnLayout id="layout" layout="{/layout}" backgroundDesign="Translucent">
+			<f:beginColumnPages height="100%" id="master">
+				<mvc:XMLView viewName="Main.view.Master"/>
+			</f:beginColumnPages>
+			<f:midColumnPages id="detail" height="100%">
+				<mvc:XMLView viewName="Main.view.Detail"/>
+			</f:midColumnPages>
+		</f:FlexibleColumnLayout>
+	</App>
+</mvc:View>

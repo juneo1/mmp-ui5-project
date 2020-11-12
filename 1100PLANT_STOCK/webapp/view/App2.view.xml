@@ -1,0 +1,55 @@
+<mvc:View controllerName="1100_stock.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified"
+	xmlns:filterbar="sap.ui.comp.filterbar" xmlns:tnt="sap.tnt">
+	<Page showHeader="false">
+		<Table id="productTable" items="{ZMPI260>/O_TAB2}">
+			<headerToolbar>
+				<OverflowToolbar>
+					<content>
+						<Title text="{i18n>plantName}" level="H2"/>
+						<ToolbarSpacer/>
+						<Label text="{i18n>labelText}:" labelFor="state"/>
+						<Select id="state" selectedKey="0001" change="handleSelectChange">
+							<items>
+								<core:Item key="0001" text="{i18n>mainLgort}"/>
+								<core:Item key="0009" text="{i18n>returnLgort}"/>
+							</items>
+						</Select>
+					</content>
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns>
+				<Column width="auto" hAlign="Center" mergeDuplicates="true">
+					<Label text="{i18n>lgobe}" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="{i18n>maktx}" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="{i18n>menge}" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="{i18n>stock}" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="{i18n>nstock}" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="{i18n>state}" design="Bold"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier title="{ZMPI260>LGOBE}"/>
+						<ObjectIdentifier title="{ZMPI260>MAKTX}" text="{ZMPI260>MATNR}" titleActive="true"/>
+						<ObjectNumber number="{ZMPI260>MENGE}" unit="{ZMPI260>MEINS}" textAlign="Center"/>
+						<ObjectNumber number="{ZMPI260>STOCK}" unit="{ZMPI260>MEINS}" textAlign="Center"/>
+						<ObjectNumber number="{ZMPI260>NSTOCK}" unit="{ZMPI260>MEINS}" textAlign="Center"/>
+						<ProgressIndicator percentValue="{ZMPI260>TOTAL}" displayValue="{ZMPI260>TOTAL}%" state="{path : 'ZMPI260>TOTAL', formatter : '.formatObj'}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</Page>
+</mvc:View>

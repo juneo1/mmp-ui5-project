@@ -1,7 +1,7 @@
 {
 	"_version": "1.7.0",
 	"sap.app": {
-		"id": "Document_Inquery",
+		"id": "Main",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -36,14 +36,16 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "Document_Inquery.view.App",
-			"type": "XML"
+			"viewName": "Main.view.Main",
+			"type": "XML",
+			"id": "app"
 		},
 		"dependencies": {
 			"minUI5Version": "1.30.0",
 			"libs": {
 				"sap.ui.core": {},
 				"sap.m": {},
+				"sap.f": {},
 				"sap.ui.layout": {},
 				"sap.ushell": {},
 				"sap.collaboration": {},
@@ -59,7 +61,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "Document_Inquery.i18n.i18n"
+					"bundleName": "Main.i18n.i18n"
 				}
 			}
 		},

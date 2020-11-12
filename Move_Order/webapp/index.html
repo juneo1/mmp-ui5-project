@@ -5,33 +5,41 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta charset="UTF-8">
 
-		<title>Move_Order</title>
+		<title>문서조회</title>
 
 		<script id="sap-ui-bootstrap"
 			src="../../resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_belize"
 			data-sap-ui-compatVersion="edge"
-			data-sap-ui-resourceroots='{"RFC_TEST": ""}'>
+			data-sap-ui-resourceroots='{"Document_Inquery": ""}'>
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<script>
-		sap.ui.getCore().attachInit(function () {
-            sap.ui.require([
-               "sap/ui/core/ComponentContainer"
-            ], function (ComponentContainer) {
+		// sap.ui.getCore().attachInit(function () {
+  //          sap.ui.require([
+  //             "sap/ui/core/ComponentContainer"
+  //          ], function (ComponentContainer) {
 
-               new ComponentContainer({
-                  name : 'RFC_TEST',
-                  height : "100%",
-                  settings : {
-                     id : "RFC_TEST"
-                  }
-               }).placeAt('content');
-            });
-         });
+  //             new ComponentContainer({
+  //                name : 'RFC_TEST',
+  //                height : "100%",
+  //                settings : {
+  //                   id : "RFC_TEST"
+  //                }
+  //             }).placeAt('content');
+  //          });
+  //       });
+  			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+					app: new sap.ui.core.ComponentContainer({
+						height : "100%",
+						name : "Document_Inquery"
+					})
+				}).placeAt("content");
+			});
 		</script>
 	</head>
 

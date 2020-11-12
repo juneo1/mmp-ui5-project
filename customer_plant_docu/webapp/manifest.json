@@ -1,7 +1,7 @@
 {
 	"_version": "1.7.0",
 	"sap.app": {
-		"id": "Document_Inquery",
+		"id": "Plant_Docu",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -36,7 +36,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "Document_Inquery.view.App",
+			"viewName": "Plant_Docu.view.App",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -59,7 +59,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "Document_Inquery.i18n.i18n"
+					"bundleName": "Plant_Docu.i18n.i18n"
 				}
 			}
 		},

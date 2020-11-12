@@ -1,0 +1,27 @@
+<mvc:View controllerName="Plant_Docu.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified"
+	xmlns:filterbar="sap.ui.comp.filterbar" xmlns:tnt="sap.tnt" height="100%">
+	<Page>
+		<content>
+			<IconTabBar id="idIconTabBar" select=".onFilterSelect" class="sapUiNoContentPadding" stretchContentHeight="true" expandable="false">
+				<items>
+					<IconTabFilter icon="sap-icon://cart-approval" iconColor="Positive" design="Vertical" text="입고 요청 조회">
+						<content>
+							<mvc:XMLView viewName="Plant_Docu.view.Doc1" height="100%"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://process" iconColor="Critical" design="Vertical" text="입고 문서 조회">
+						<content>
+							<mvc:XMLView viewName="Plant_Docu.view.Doc2" height="100%"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://shipping-status" iconColor="Negative" design="Vertical" text="출고 문서 조회">
+						<content>
+							<mvc:XMLView viewName="Plant_Docu.view.Doc3" height="100%"/>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</mvc:View>

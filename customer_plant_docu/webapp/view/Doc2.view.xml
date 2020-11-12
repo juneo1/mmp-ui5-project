@@ -1,0 +1,60 @@
+<mvc:View controllerName="Plant_Docu.controller.Doc2" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified"
+	xmlns:filterbar="sap.ui.comp.filterbar" xmlns:tnt="sap.tnt">
+	<ScrollContainer height="100%" vertical="true">
+		<filterbar:FilterBar id="filterBar2" showFilterConfiguration="false" useToolbar="false" filterContainerWidth="21rem" search=".onGetList">
+			<filterbar:filterGroupItems>
+				<filterbar:FilterGroupItem label="전기일" groupName="default" name="B" visibleInFilterBar="true">
+					<filterbar:control>
+						<DateRangeSelection dateValue="{Init>/oToday}" secondDateValue="{Init>/oToday2}" displayFormat="{Init>/dateFormat}"
+							valueFormat="{Init>/valueFormat}"/>
+					</filterbar:control>
+				</filterbar:FilterGroupItem>
+				<filterbar:FilterGroupItem label="플랜트" groupName="default" name="A" visibleInFilterBar="true">
+					<filterbar:control>
+						<Input value="수도권사업부" enabled="false"/>
+					</filterbar:control>
+				</filterbar:FilterGroupItem>
+				<filterbar:FilterGroupItem label="입고확인서번호" groupName="default" name="C" visibleInFilterBar="true">
+					<filterbar:control>
+						<Input value="{Init>/oInputNum}"/>
+					</filterbar:control>
+				</filterbar:FilterGroupItem>
+			</filterbar:filterGroupItems>
+		</filterbar:FilterBar>
+		<Table id="productTable" items="{ZMPI246>/}" growing="true" growingThreshold="20">
+			<columns>
+				<Column width="auto" hAlign="Center" mergeDuplicates="true">
+					<Label text="입고일" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center" mergeDuplicates="true">
+					<Label text="입고확인문서" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center" mergeDuplicates="true">
+					<Label text="입고요청문서" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="자재명" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="입고 수량" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="불량 수량" design="Bold"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{ZMPI246>ERDAT}"/>
+						<Text text="{ZMPI246>GRNB}"/>
+						<Text text="{ZMPI246>WRNR}"/>
+						<ObjectIdentifier title="{ZMPI246>MAKTX}" text="{ZMPI246>MATNR}" titleActive="true"/>
+						<ObjectNumber number="{ZMPI246>MENGE}" unit="{ZMPI246>MEINS}" textAlign="Center"/>
+						<ObjectNumber number="{ZMPI246>WAMNG}" unit="{ZMPI246>MEINS}" textAlign="Center"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</ScrollContainer>
+</mvc:View>

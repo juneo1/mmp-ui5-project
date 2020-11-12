@@ -1,0 +1,32 @@
+<mvc:View controllerName="main_stock.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified"
+	xmlns:filterbar="sap.ui.comp.filterbar" xmlns:tnt="sap.tnt" height="100%">
+	<Page showHeader="false">
+		<content>
+			<IconTabBar id="idIconTabBar" select=".onFilterSelect" stretchContentHeight="true" expandable="false">
+				<items>
+					<IconTabFilter icon="sap-icon://retail-store" count="{ZMPI260>/E_TOT2} Bx" iconColor="Positive" design="Horizontal" text="MMP본사">
+						<content>
+							<mvc:XMLView viewName="main_stock.view.Plt2" height="100%"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://retail-store" count="{ZMPI260>/E_TOT3} Bx" iconColor="Critical" design="Horizontal" text="수도권사업부">
+						<content>
+							<mvc:XMLView viewName="main_stock.view.Plt3" height="100%"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://retail-store" count="{ZMPI260>/E_TOT4} Bx" iconColor="Negative" design="Horizontal" text="중부사업부">
+						<content>
+							<mvc:XMLView viewName="main_stock.view.Plt4" height="100%"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://retail-store" count="{ZMPI260>/E_TOT5} Bx" iconColor="Neutral" design="Horizontal" text="남부사업부">
+						<content>
+							<mvc:XMLView viewName="main_stock.view.Plt5" height="100%"/>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</mvc:View>

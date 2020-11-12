@@ -1,0 +1,64 @@
+<mvc:View controllerName="Document_Inquery.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified"
+	xmlns:filterbar="sap.ui.comp.filterbar" xmlns:tnt="sap.tnt">
+	<ScrollContainer height="100%" vertical="true">
+		<filterbar:FilterBar id="filterBar" showFilterConfiguration="false" useToolbar="false" filterContainerWidth="10rem" search=".onGetList">
+			<filterbar:filterGroupItems>
+				<filterbar:FilterGroupItem label="전기일" groupName="default" name="B" visibleInFilterBar="true">
+					<filterbar:control>
+						<DateRangeSelection dateValue="{Init>/oToday}" secondDateValue="{Init>/oToday2}" displayFormat="{Init>/dateFormat}"
+							valueFormat="{Init>/valueFormat}"/>
+					</filterbar:control>
+				</filterbar:FilterGroupItem>
+				<filterbar:FilterGroupItem label="플랜트" groupName="default" name="C" visibleInFilterBar="true">
+					<filterbar:control>
+						<ComboBox id="comboboxId" items="{Plant>/selectItems}" showSecondaryValues="true" change=".onSelect">
+							<items>
+								<core:ListItem key="{Plant>itemKey}" text="{Plant>itemText}" additionalText="{Plant>itemKey}"/>
+							</items>
+						</ComboBox>
+					</filterbar:control>
+				</filterbar:FilterGroupItem>
+				<filterbar:FilterGroupItem label="전기문서 번호" groupName="default" name="A" visibleInFilterBar="true">
+					<filterbar:control>
+						<Input value="{Init>/oInputNum}"/>
+					</filterbar:control>
+				</filterbar:FilterGroupItem>
+			</filterbar:filterGroupItems>
+		</filterbar:FilterBar>
+		<Table id="productTable" items="{/TAB1}" growing="true" growingThreshold="20">
+			<columns>
+				<Column width="auto" hAlign="Center" mergeDuplicates="true">
+					<Label text="요청 일자" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center" mergeDuplicates="true">
+					<Label text="전기문서 번호" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="자재명" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="출발 플랜트" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="도착 플랜트" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="주문 수량" design="Bold"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{ZDATE}"/>
+						<Text text="{MVNR}"/>
+						<ObjectIdentifier title="{MAKTX}" text="{MATNR}" titleActive="true"/>
+						<ObjectIdentifier title="{PLNAME_FR}" text="{LGOBE_FR}"/>
+						<ObjectIdentifier title="{PLNAME_TO}" text="{LGOBE_TO}"/>
+						<ObjectNumber number="{MENGE}" unit="{MEINS}" textAlign="Center"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</ScrollContainer>
+</mvc:View>

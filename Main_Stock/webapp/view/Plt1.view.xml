@@ -1,0 +1,86 @@
+<mvc:View controllerName="main_stock.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified"
+	xmlns:filterbar="sap.ui.comp.filterbar" xmlns:tnt="sap.tnt">
+	<ScrollContainer height="100%" vertical="true">
+		<List id="idList" items="{ZMPI261>/O_TAB1}">
+			<items>
+				<StandardListItem title="{ZMPI261>MAKTX}" description="{ZMPI261>MATNR}" 
+				icon="./image/KF80.JPG" iconDensityAware="false" iconInset="false"/>
+			</items>
+		</List>
+		<!--	<List-->
+		<!--	id="ProductList"-->
+		<!--	items="{/ProductCollection}"-->
+		<!--	includeItemInSelection="true">-->
+		<!--	<headerToolbar>-->
+		<!--		<OverflowToolbar>-->
+		<!--			<content>-->
+		<!--				<Title text="Products" level="H2"/>-->
+		<!--				<ToolbarSpacer />-->
+		<!--				<Label text="List Item type:" labelFor="state"/>-->
+		<!--				<Select-->
+		<!--					id="state"-->
+		<!--					selectedKey="Inactive"-->
+		<!--					change="handleSelectChange">-->
+		<!--					<items>-->
+		<!--						<core:Item key="Inactive" text="Inactive" />-->
+		<!--						<core:Item key="Active" text="Active" />-->
+		<!--						<core:Item key="Navigation" text="Navigation" />-->
+		<!--						<core:Item key="Detail" text="Detail" />-->
+		<!--						<core:Item key="DetailAndActive" text="Detail And Active" />-->
+		<!--					</items>-->
+		<!--				</Select>-->
+		<!--			</content>-->
+		<!--		</OverflowToolbar>-->
+		<!--	</headerToolbar>-->
+		<!--	<StandardListItem-->
+		<!--		title="{Name}"-->
+		<!--		description="{ProductId}"-->
+		<!--		icon="{ProductPicUrl}"-->
+		<!--		iconDensityAware="false"-->
+		<!--		iconInset="false"-->
+		<!--		press="handlePress"-->
+		<!--		detailPress="handleDetailPress" />-->
+		<!--</List>-->
+		<!--<table:Table id="productTable" rows="{ZMPI260>/O_TAB1}" selectionMode="None" visibleRowCount="20" visibleRowCountMode="Fixed">-->
+		<!--	<table:columns>-->
+		<!--		<table:Column width="auto" hAlign="Center">-->
+		<!--			<Label text="플랜트" design="Bold"/>-->
+		<!--			<table:template>-->
+		<!--				<Text text="{ZMPI260>PLNAME}"/>-->
+		<!--			</table:template>-->
+		<!--		</table:Column>-->
+		<!--		<table:Column width="auto" hAlign="Center">-->
+		<!--			<Label text="저장위치" design="Bold"/>-->
+		<!--			<table:template>-->
+		<!--				<Text text="{ZMPI260>LGOBE}"/>-->
+		<!--			</table:template>-->
+		<!--		</table:Column>-->
+		<!--		<table:Column width="auto" hAlign="Center">-->
+		<!--			<Label text="자재명" design="Bold"/>-->
+		<!--			<table:template>-->
+		<!--				<ObjectIdentifier title="{ZMPI260>MAKTX}" text="{ZMPI260>MATNR}" />-->
+		<!--			</table:template>-->
+		<!--		</table:Column>-->
+		<!--		<table:Column width="auto" hAlign="Center">-->
+		<!--			<Label text="전체 재고" design="Bold"/>-->
+		<!--			<table:template>-->
+		<!--				<ObjectNumber number="{ZMPI260>MENGE}" unit="{ZMPI260>MEINS}" textAlign="Center"/>-->
+		<!--			</table:template>-->
+		<!--		</table:Column>-->
+		<!--		<table:Column width="auto" hAlign="Center">-->
+		<!--			<Label text="가용 재고" design="Bold"/>-->
+		<!--			<table:template>-->
+		<!--				<ObjectNumber number="{ZMPI260>STOCK}" unit="{ZMPI260>MEINS}" textAlign="Center"/>-->
+		<!--			</table:template>-->
+		<!--		</table:Column>-->
+		<!--		<table:Column width="auto" hAlign="Center">-->
+		<!--			<Label text="사용 중 재고" design="Bold"/>-->
+		<!--			<table:template>-->
+		<!--				<ObjectNumber number="{ZMPI260>NSTOCK}" unit="{ZMPI260>MEINS}" textAlign="Center"/>-->
+		<!--			</table:template>-->
+		<!--		</table:Column>-->
+		<!--	</table:columns>-->
+		<!--</table:Table>-->
+	</ScrollContainer>
+</mvc:View>

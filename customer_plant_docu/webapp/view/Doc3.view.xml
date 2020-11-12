@@ -1,0 +1,56 @@
+<mvc:View controllerName="Plant_Docu.controller.Doc3" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified"
+	xmlns:filterbar="sap.ui.comp.filterbar" xmlns:tnt="sap.tnt">
+	<ScrollContainer height="100%" vertical="true">
+		<filterbar:FilterBar id="filterBar3"  showFilterConfiguration="false" useToolbar="false" filterContainerWidth="21rem" search=".onGetList">
+			<filterbar:filterGroupItems>
+				<filterbar:FilterGroupItem label="전기일" groupName="default" name="B" visibleInFilterBar="true">
+					<filterbar:control>
+						<DateRangeSelection dateValue="{Init>/oToday}" secondDateValue="{Init>/oToday2}" displayFormat="{Init>/dateFormat}"
+							valueFormat="{Init>/valueFormat}"/>
+					</filterbar:control>
+				</filterbar:FilterGroupItem>
+				<filterbar:FilterGroupItem label="플랜트" groupName="default" name="C" visibleInFilterBar="true">
+					<filterbar:control>
+						<Input value="수도권사업부" enabled = "false"/>
+					</filterbar:control>
+				</filterbar:FilterGroupItem>
+				<filterbar:FilterGroupItem label="출고문서번호" groupName="default" name="A" visibleInFilterBar="true">
+					<filterbar:control>
+						<Input value="{Init>/oInputNum}"/>
+					</filterbar:control>
+				</filterbar:FilterGroupItem>
+			</filterbar:filterGroupItems>
+		</filterbar:FilterBar>
+		<Table id="productTable" items="{ZMPI247>/}" growing="true" growingThreshold="20">
+			<columns>
+				<Column width="auto" hAlign="Center" mergeDuplicates="true">
+					<Label text="출고일" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center" mergeDuplicates="true">
+					<Label text="출고요청문서" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="자재명" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="요청 수량" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="현재 상태" design="Bold"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{ZMPI247>DATUM}"/>
+						<Text text="{ZMPI247>MVNR}"/>
+						<ObjectIdentifier title="{ZMPI247>MAKTX}" text="{ZMPI247>MATNR}" titleActive="true"/>
+						<ObjectNumber number="{ZMPI247>WAMNG}" unit="{ZMPI247>MEINS}" textAlign="Center"/>
+						<tnt:InfoLabel text="출고완료" renderMode="Loose" colorScheme="5" displayOnly="true"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</ScrollContainer>
+</mvc:View>

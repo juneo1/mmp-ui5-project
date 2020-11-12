@@ -1,0 +1,19 @@
+/* Enter your custom styles here */
+
+.sapMInputBaseDisabledWrapper {
+   white-space: normal;
+    font-family: NotoSansKR;
+    font-size: 15px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: black;
+    padding: 0 .5rem;
+    min-width: 350px;
+    border-radius: 7px;
+    border: inset;
+    border-color: white;
+    background-color: white;
+}

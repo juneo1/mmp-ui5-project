@@ -1,0 +1,55 @@
+<mvc:View controllerName="main_stock.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:table="sap.ui.table" xmlns:u="sap.ui.unified"
+	xmlns:filterbar="sap.ui.comp.filterbar" xmlns:tnt="sap.tnt">
+	<ScrollContainer height="100%" vertical="true">
+		<Table id="productTable" items="{ZMPI260>/O_TAB4}">
+			<headerToolbar>
+				<OverflowToolbar>
+					<content>
+						<!--<Title text="Products" level="H2"/>-->
+						<ToolbarSpacer/>
+						<Label text="위치:" labelFor="state"/>
+						<Select id="state" selectedKey="0001" change="handleSelectChange">
+							<items>
+								<core:Item key="0001" text="완제품창고"/>
+								<core:Item key="0009" text="반품창고"/>
+							</items>
+						</Select>
+					</content>
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns>
+				<Column width="auto" hAlign="Center" mergeDuplicates="true">
+					<Label text="위치" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="자재명" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="전체 재고" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="가용 재고" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="사용 중 재고" design="Bold"/>
+				</Column>
+				<Column width="auto" hAlign="Center">
+					<Label text="재고 현황" design="Bold"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier title="{ZMPI260>LGOBE}"/>
+						<ObjectIdentifier title="{ZMPI260>MAKTX}" text="{ZMPI260>MATNR}" titleActive="true"/>
+						<ObjectNumber number="{ZMPI260>MENGE}" unit="{ZMPI260>MEINS}" textAlign="Center"/>
+						<ObjectNumber number="{ZMPI260>STOCK}" unit="{ZMPI260>MEINS}" textAlign="Center"/>
+						<ObjectNumber number="{ZMPI260>NSTOCK}" unit="{ZMPI260>MEINS}" textAlign="Center"/>
+						<ProgressIndicator percentValue="{ZMPI260>TOTAL}" displayValue="{ZMPI260>TOTAL}%" state="{path : 'ZMPI260>TOTAL', formatter : '.formatObj'}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</ScrollContainer>
+</mvc:View>

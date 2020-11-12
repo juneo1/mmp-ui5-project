@@ -1,0 +1,143 @@
+<mvc:View displayBlock="true" controllerName="Main.controller.Detail" height="100%" xmlns="sap.uxap" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:table="sap.ui.table" xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core">
+	<m:Page showHeader="false">
+		<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false"
+			headerContentPinnable="true" isChildPage="true" upperCaseAnchorBar="false" showAnchorBar="false" class="deleteSpacer">
+			<headerTitle visible="false">
+				<ObjectPageDynamicHeaderTitle>
+					<expandedHeading>
+						<m:Title text="자재이동" wrapping="true" class="sapUiSmallMarginEnd"/>
+					</expandedHeading>
+					<snappedHeading>
+						<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+							<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+								<f:Avatar src="sap-icon://inspection" displaySize="S" displayShape="Square" backgroundColor="Accent2"/>
+								<m:Title text="자재이동" wrapping="true" class="sapUiTinyMarginEnd"/>
+							</m:FlexBox>
+						</m:FlexBox>
+					</snappedHeading>
+					<navigationActions>
+						<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose" tooltip="Close column"/>
+					</navigationActions>
+				</ObjectPageDynamicHeaderTitle>
+			</headerTitle>
+			<headerContent>
+				<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
+					<f:Avatar src="sap-icon://inspection" displaySize="L" displayShape="Square" class="sapUiTinyMarginEnd" backgroundColor="Accent2"></f:Avatar>
+					<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+						<tnt:InfoLabel text="문서 번호" colorScheme="2"/>
+						<m:Text text="{Init>/wrnr}"/>
+					</m:VBox>
+				</m:FlexBox>
+			</headerContent>
+			<sections>
+				<ObjectPageSection showTitle="false">
+					<subSections>
+						<ObjectPageSubSection>
+							<blocks>
+								<table:Table id="ListTable" rows="{detailWait>/}" selectionMode="Multi" visibleRowCountMode="Fixed" visibleRowCount="5">
+									<table:extension>
+										<m:OverflowToolbar>
+											<m:Title text="출고대기 목록"/>
+										</m:OverflowToolbar>
+									</table:extension>
+									<table:columns>
+										<table:Column width="auto" hAlign="Center">
+											<m:Label text="자재내역"/>
+											<table:template>
+												<m:Text text="{detailWait>MAKTX}"/>
+											</table:template>
+										</table:Column>
+										<table:Column width="auto" hAlign="Center">
+											<m:Label text="요청수량"/>
+											<table:template>
+												<m:Text text="{detailWait>MENGE}"/>
+											</table:template>
+										</table:Column>
+										<table:Column width="auto" hAlign="Center">
+											<m:Label text="가용재고량"/>
+											<table:template>
+												<m:Text text="{detailWait>STOCK}"/>
+											</table:template>
+										</table:Column>
+										<table:Column width="auto" hAlign="Center">
+											<m:Label text="단위"/>
+											<table:template>
+												<m:Text text="{detailWait>MEINS}"/>
+											</table:template>
+										</table:Column>
+										<table:Column width="auto" hAlign="Center">
+											<m:Label text="출고가능여부"/>
+											<table:template>
+												<!--<m:Text text="{detailWait>CHECK_CODE}"/>-->
+												<tnt:InfoLabel text="{ path : 'detailWait>CHECK_CODE', formatter : '.textFormatObj2' }" renderMode="Loose"
+													colorScheme="{ path : 'detailWait>CHECK_CODE', formatter : '.formatterObj2' }" displayOnly="true"/>
+											</table:template>
+										</table:Column>
+										<!--<table:Column width="auto" hAlign="Center">-->
+										<!--	<m:Label text="상태"/>-->
+										<!--	<table:template>-->
+										<!--		<tnt:InfoLabel text="{ path : 'detailWait>STATE', formatter : '.textFormatObj' }" renderMode="Loose"-->
+										<!--			colorScheme="{ path : 'detailWait>STATE', formatter : '.formatterObj' }" displayOnly="true"/>-->
+										<!--	</table:template>-->
+										<!--</table:Column>-->
+									</table:columns>
+								</table:Table>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				<ObjectPageSection showTitle="false">
+					<subSections>
+						<ObjectPageSubSection>
+							<blocks>
+								<table:Table id="ListTable2" rows="{detailGo>/}" selectionMode="None" visibleRowCountMode="Fixed" visibleRowCount="5">
+									<table:extension>
+										<m:OverflowToolbar>
+											<m:Title text="출고완료 목록"/>
+										</m:OverflowToolbar>
+									</table:extension>
+									<table:columns>
+										<table:Column width="auto" hAlign="Center">
+											<m:Label text="자재내역"/>
+											<table:template>
+												<m:Text text="{detailGo>MAKTX}"/>
+											</table:template>
+										</table:Column>
+										<table:Column width="auto" hAlign="Center">
+											<m:Label text="요청수량"/>
+											<table:template>
+												<m:Text text="{detailGo>MENGE}"/>
+											</table:template>
+										</table:Column>
+										<table:Column width="auto" hAlign="Center">
+											<m:Label text="단위"/>
+											<table:template>
+												<m:Text text="{detailGo>MEINS}"/>
+											</table:template>
+										</table:Column>
+										<table:Column width="auto" hAlign="Center">
+											<m:Label text="상태"/>
+											<table:template>
+												<tnt:InfoLabel text="{ path : 'detailGo>STATE', formatter : '.textFormatObj' }" renderMode="Loose"
+													colorScheme="{ path : 'detailGo>STATE', formatter : '.formatterObj' }" displayOnly="true"/>
+											</table:template>
+										</table:Column>
+									</table:columns>
+								</table:Table>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+			</sections>
+		</ObjectPageLayout>
+		<m:footer>
+			<m:OverflowToolbar>
+				<m:content>
+					<m:ToolbarSpacer/>
+					<m:Button text="출고" press=".onRequest" type="Emphasized"/>
+				</m:content>
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

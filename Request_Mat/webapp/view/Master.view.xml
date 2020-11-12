@@ -1,0 +1,61 @@
+<mvc:View controllerName="Main.controller.Master" xmlns:table="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic"
+	xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:filterbar="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<semantic:SemanticPage id="masterPage" preserveHeaderStateOnScroll="true" toggleHeaderOnTitleClick="false">
+		<semantic:titleHeading>
+			<!--<Title text="자재이동 "/>-->
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<filterbar:FilterBar showFilterConfiguration="false" useToolbar="false" filterContainerWidth="10rem" search=".onGetList">
+				<filterbar:filterGroupItems>
+					<filterbar:FilterGroupItem label="요청일" groupName="default" name="B" visibleInFilterBar="true">
+						<filterbar:control>
+							<DateRangeSelection dateValue="{Init>/oToday}" secondDateValue="{Init>/oToday2}" displayFormat="{Init>/dateFormat}"
+								valueFormat="{Init>/valueFormat}"/>
+						</filterbar:control>
+					</filterbar:FilterGroupItem>
+					<filterbar:FilterGroupItem label="플랜트" groupName="default" name="C" visibleInFilterBar="true">
+						<filterbar:control>
+							<ComboBox id="comboboxId2" items="{Plant>/selectItems}" selectedKey=" " showSecondaryValues="true" change=".onSelect">
+								<items>
+									<core:ListItem key="{Plant>itemKey}" text="{Plant>itemText}" additionalText="{Plant>itemKey}"/>
+								</items>
+							</ComboBox>
+						</filterbar:control>
+					</filterbar:FilterGroupItem>
+					<filterbar:FilterGroupItem label="입고요청 문서번호" groupName="default" name="A" visibleInFilterBar="true">
+						<filterbar:control>
+							<Input value="{Init>/oInputNum}"/>
+						</filterbar:control>
+					</filterbar:FilterGroupItem>
+				</filterbar:filterGroupItems>
+			</filterbar:FilterBar>
+		</semantic:headerContent>
+		<Table id="productTable" items="{MasterViewModel>/}">
+			<columns>
+				<Column width="auto" mergeDuplicates="true">
+					<Text text="요청일"/>
+				</Column>
+				<Column width="auto">
+					<Text text="주문서 번호"/>
+				</Column>
+				<Column width="auto">
+					<Text text="요청플랜트"/>
+				</Column>
+				<Column width="auto">
+					<Text text="진행상황"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Navigation" press="onGoDetail">
+					<cells>
+						<Text text="{MasterViewModel>DATUM}"/>
+						<Text text="{MasterViewModel>WRNR}"/>
+						<Text text="{MasterViewModel>PLNAME}"/>
+						<tnt:InfoLabel text="{ path : 'MasterViewModel>STATE', formatter : '.textFormatObj' }" renderMode="Loose"
+							colorScheme="{ path : 'MasterViewModel>STATE', formatter : '.formatterObj' }" displayOnly="true"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</semantic:SemanticPage>
+</mvc:View>

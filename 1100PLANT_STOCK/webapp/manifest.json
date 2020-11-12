@@ -1,7 +1,7 @@
 {
 	"_version": "1.7.0",
 	"sap.app": {
-		"id": "Document_Inquery",
+		"id": "1100_stock",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -36,7 +36,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "Document_Inquery.view.App",
+			"viewName": "1100_stock.view.App",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -59,7 +59,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "Document_Inquery.i18n.i18n"
+					"bundleName": "1100_stock.i18n.i18n"
 				}
 			}
 		},

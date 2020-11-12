@@ -1,12 +1,12 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"RFC_TEST/model/models",
+	"Document_Inquery/model/models",
 	"sap/ui/model/json/JSONModel"
 ], function(UIComponent, Device, models, JSONModel) {
 	"use strict";
 
-	return UIComponent.extend("RFC_TEST.Component", {
+	return UIComponent.extend("Document_Inquery.Component", {
 
 		metadata: {
 			manifest: "json"
@@ -15,16 +15,6 @@ sap.ui.define([
 		init: function() {
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
-
-			// set the device model
-			this.setModel(models.createDeviceModel(), "device");
-			this.setModel(new JSONModel({}), "detail");
-
-			this.setModel(new JSONModel({
-				nameValue: "None",
-				idValue: "None",
-				afterSaveEdit: true
-			}), "state");
 		},
 		
 		rfcCall: function(sRfcName, oParameter) {
